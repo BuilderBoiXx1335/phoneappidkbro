@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Journal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="pixel">
+  <h1>📓 Journal</h1>
+  <input type="date" id="date" /><br><br>
+  <textarea id="entry" rows="10" cols="30" placeholder="Today's log..."></textarea><br>
+  <button onclick="saveEntry()">Save</button>
+  <script>
+    const date = document.getElementById('date');
+    const entry = document.getElementById('entry');
+    date.valueAsDate = new Date();
+    function saveEntry() {
+      localStorage.setItem('journal-' + date.value, entry.value);
+    }
+    date.addEventListener('change', () => {
+      entry.value = localStorage.getItem('journal-' + date.value) || '';
+    });
+    entry.value = localStorage.getItem('journal-' + date.value) || '';
+  </script>
+</body>
+</html>

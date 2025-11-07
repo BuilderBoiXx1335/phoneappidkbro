@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="pixel">
+  <h1>📝 Notes</h1>
+  <textarea id="note" rows="10" cols="30" placeholder="Write something..."></textarea><br>
+  <button onclick="saveNote()">Save</button>
+  <script>
+    const note = document.getElementById('note');
+    note.value = localStorage.getItem('note') || '';
+    function saveNote() {
+      localStorage.setItem('note', note.value);
+    }
+  </script>
+</body>
+</html>

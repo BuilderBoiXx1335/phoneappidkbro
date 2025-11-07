@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sketch Pad</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="pixel">
+  <h1>🎨 Sketch Pad</h1>
+  <canvas id="canvas" width="160" height="160" style="background:#fff; border:2px solid #000;"></canvas><br>
+  <button onclick="clearCanvas()">Clear</button>
+  <script>
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const size = 10;
+    canvas.addEventListener('click', e => {
+      const x = Math.floor(e.offsetX / size) * size;
+      const y = Math.floor(e.offsetY / size) * size;
+      ctx.fillStyle = '#000';
+      ctx.fillRect(x, y, size, size);
+    });
+    function clearCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  </script>
+</body>
+</html>
